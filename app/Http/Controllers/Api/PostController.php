@@ -16,9 +16,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
-        $posts = Post::paginate(1);
-        // $posts = Post::all();
+        //paginate serve decidere quanti elementi assegnare alla API
+        //in una chiamata axios
+        $posts = Post::paginate(5);
+        //$posts = Post::all();
         $results = ['result'=>$posts, 'success'=>true];
         return response()->json($results);
     }
