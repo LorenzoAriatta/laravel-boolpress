@@ -9,6 +9,7 @@
 require('./bootstrap');
 
 window.axios = require('axios');
+window.axios.default.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.axios.get('/api/posts').then(results => {
     console.log(results);
