@@ -1987,12 +1987,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PostCardComponent",
   props: ["title", "cover", "content"],
   computed: {
     trimmedContent: function trimmedContent() {
-      var shortContent = this.content.length > 30 ? this.content.substring(0, 30) : this.content;
+      var shortContent = this.content.length > 25 ? this.content.substring(0, 25) : this.content;
       return shortContent;
     }
   }
@@ -2000,16 +2002,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCardListComponents.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PostCardListComponents.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCardListComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PostCardListComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_PostCardComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/PostCardComponent.vue */ "./resources/js/components/PostCardComponent.vue");
+/* harmony import */ var _PostCardComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PostCardComponent.vue */ "./resources/js/components/PostCardComponent.vue");
 //
 //
 //
@@ -2025,9 +2027,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PostCardListComponent",
-  props: ["post"],
+  props: ["posts"],
   components: {
-    PostCardComponent: _components_PostCardComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    PostCardComponent: _PostCardComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -2042,7 +2044,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_PostCardListComponents_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/PostCardListComponents.vue */ "./resources/js/components/PostCardListComponents.vue");
+/* harmony import */ var _components_PostCardListComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/PostCardListComponent.vue */ "./resources/js/components/PostCardListComponent.vue");
 //
 //
 //
@@ -2062,14 +2064,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "BlogComponent",
   components: {
-    PostCardListComponent: _components_PostCardListComponents_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    PostCardListComponent: _components_PostCardListComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
       posts: []
     };
   },
-  mounte: function mounte() {
+  mounted: function mounted() {
     var _this = this;
 
     window.axios.get("http://127.0.0.1:8000/api/posts").then(function (_ref) {
@@ -2079,6 +2081,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (status === 200 && data.success) {
         _this.posts = data.result.data;
+        console.log(_this.posts);
       }
     })["catch"](function (e) {
       console.log(e);
@@ -37850,12 +37853,14 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("img", { attrs: { src: "storage/" + _vm.cover, alt: _vm.title } }),
-    _vm._v(" "),
-    _c("h3", [_vm._v(_vm._s(_vm.title))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.content))]),
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "card w-25" }, [
+      _c("img", { attrs: { src: "storage/" + _vm.cover, alt: _vm.title } }),
+      _vm._v(" "),
+      _c("h3", [_vm._v(_vm._s(_vm.title))]),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.trimmedContent) + " ...")]),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -37865,10 +37870,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCardListComponents.vue?vue&type=template&id=3768e06f&":
-/*!*************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PostCardListComponents.vue?vue&type=template&id=3768e06f& ***!
-  \*************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCardListComponent.vue?vue&type=template&id=3337a734&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PostCardListComponent.vue?vue&type=template&id=3337a734& ***!
+  \************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -37888,7 +37893,7 @@ var render = function () {
         "div",
         { key: index },
         [
-          _c("PostcardComponent", {
+          _c("PostCardComponent", {
             attrs: {
               title: post.title,
               cover: post.cover,
@@ -37931,7 +37936,7 @@ var render = function () {
       _vm.posts.length > 0
         ? _c(
             "div",
-            [_c("PostCardListComponent", { attrs: { posts: _vm.post } })],
+            [_c("PostCardListComponent", { attrs: { posts: _vm.posts } })],
             1
           )
         : _c("div", [_vm._v("Loading Posts")]),
@@ -53734,17 +53739,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/PostCardListComponents.vue":
-/*!************************************************************!*\
-  !*** ./resources/js/components/PostCardListComponents.vue ***!
-  \************************************************************/
+/***/ "./resources/js/components/PostCardListComponent.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/PostCardListComponent.vue ***!
+  \***********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _PostCardListComponents_vue_vue_type_template_id_3768e06f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PostCardListComponents.vue?vue&type=template&id=3768e06f& */ "./resources/js/components/PostCardListComponents.vue?vue&type=template&id=3768e06f&");
-/* harmony import */ var _PostCardListComponents_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PostCardListComponents.vue?vue&type=script&lang=js& */ "./resources/js/components/PostCardListComponents.vue?vue&type=script&lang=js&");
+/* harmony import */ var _PostCardListComponent_vue_vue_type_template_id_3337a734___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PostCardListComponent.vue?vue&type=template&id=3337a734& */ "./resources/js/components/PostCardListComponent.vue?vue&type=template&id=3337a734&");
+/* harmony import */ var _PostCardListComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PostCardListComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/PostCardListComponent.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -53754,9 +53759,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _PostCardListComponents_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _PostCardListComponents_vue_vue_type_template_id_3768e06f___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _PostCardListComponents_vue_vue_type_template_id_3768e06f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _PostCardListComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PostCardListComponent_vue_vue_type_template_id_3337a734___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PostCardListComponent_vue_vue_type_template_id_3337a734___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -53766,38 +53771,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/PostCardListComponents.vue"
+component.options.__file = "resources/js/components/PostCardListComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/PostCardListComponents.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/PostCardListComponents.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************/
+/***/ "./resources/js/components/PostCardListComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/PostCardListComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardListComponents_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PostCardListComponents.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCardListComponents.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardListComponents_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardListComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PostCardListComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCardListComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardListComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/PostCardListComponents.vue?vue&type=template&id=3768e06f&":
-/*!*******************************************************************************************!*\
-  !*** ./resources/js/components/PostCardListComponents.vue?vue&type=template&id=3768e06f& ***!
-  \*******************************************************************************************/
+/***/ "./resources/js/components/PostCardListComponent.vue?vue&type=template&id=3337a734&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/PostCardListComponent.vue?vue&type=template&id=3337a734& ***!
+  \******************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardListComponents_vue_vue_type_template_id_3768e06f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PostCardListComponents.vue?vue&type=template&id=3768e06f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCardListComponents.vue?vue&type=template&id=3768e06f&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardListComponents_vue_vue_type_template_id_3768e06f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardListComponent_vue_vue_type_template_id_3337a734___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PostCardListComponent.vue?vue&type=template&id=3337a734& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCardListComponent.vue?vue&type=template&id=3337a734&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardListComponent_vue_vue_type_template_id_3337a734___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardListComponents_vue_vue_type_template_id_3768e06f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardListComponent_vue_vue_type_template_id_3337a734___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
