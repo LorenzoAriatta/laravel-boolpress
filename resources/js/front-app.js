@@ -38,7 +38,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-//AppComponent = require('./app/App.Component.vue').default;
+//AppComponent = require('./app/AppComponent.vue').default;
 
 import AppComponent from './app/AppComponent.vue';
 
