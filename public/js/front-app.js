@@ -2022,8 +2022,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "BlogComponent"
+  name: "BlogComponent",
+  data: function data() {
+    return {
+      posts: []
+    };
+  },
+  mounte: function mounte() {
+    var _this = this;
+
+    window.axios.get("http://127.0.0.1:8000/api/posts").then(function (_ref) {
+      var status = _ref.status,
+          data = _ref.data;
+      console.log(data); //effettuo un controllo su status
+
+      if (status === 200 && results.data.success) {
+        _this.posts = results.data.results;
+      }
+    })["catch"](function (e) {
+      console.log(e);
+    });
+  }
 });
 
 /***/ }),
@@ -37837,19 +37862,27 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm.posts.length > 0
+        ? _c(
+            "div",
+            [_c("PostCardListComponent", { attrs: { posts: _vm.posts } })],
+            1
+          )
+        : _c("div", [_vm._v("Loading Posts")]),
+    ]),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12 text-center" }, [
-          _c("h1", { staticClass: "mt-5" }, [_vm._v("My Posts")]),
-        ]),
-      ]),
+    return _c("div", { staticClass: "col-12 text-center" }, [
+      _c("h1", { staticClass: "mt-5" }, [_vm._v("My Posts")]),
     ])
   },
 ]
