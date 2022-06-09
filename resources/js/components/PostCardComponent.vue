@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <img :src="'storage/' + cover" :alt="title" />
-    <h3>{{ title }}</h3>
-    <p>{{ content }}</p>
+  <div class="container">
+    <div class="card w-25">
+      <img :src="'storage/' + cover" :alt="title" />
+      <h3>{{ title }}</h3>
+      <p>{{ trimmedContent }} ...</p>
+    </div>
   </div>
 </template>
 
@@ -13,7 +15,7 @@ export default {
   computed: {
     trimmedContent() {
       const shortContent =
-        this.content.length > 30 ? this.content.substring(0, 30) : this.content;
+        this.content.length > 25 ? this.content.substring(0, 25) : this.content;
 
       return shortContent;
     },
