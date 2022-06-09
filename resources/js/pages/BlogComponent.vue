@@ -6,7 +6,7 @@
       </div>
       <div v-if="posts.length > 0">
         <!-- se l'array contiene dei dati andiamo visualizzarli con il v-if -->
-        <PostCardListComponent :posts="posts" />
+        <PostCardListComponent :posts="post" />
       </div>
       <div v-else>Loading Posts</div>
     </div>
@@ -14,8 +14,10 @@
 </template>
 
 <script>
+import PostCardListComponent from "../components/PostCardListComponents.vue";
 export default {
   name: "BlogComponent",
+  components: { PostCardListComponent },
   data() {
     return {
       posts: [],
@@ -27,8 +29,8 @@ export default {
       .then(({ status, data }) => {
         console.log(data);
         //effettuo un controllo su status
-        if (status === 200 && results.data.success) {
-          this.posts = results.data.results;
+        if (status === 200 && data.success) {
+          this.posts = data.result.data;
         }
       })
       .catch((e) => {
