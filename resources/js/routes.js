@@ -7,6 +7,7 @@ import HomeComponent from './pages/HomeComponent'
 import BlogComponent from './pages/BlogComponent'
 import WhoWeAreComponent from './pages/WhoWeAreComponent'
 import NotFoundComponent from './pages/NotFoundComponent'
+import ContactsComponent from './pages/ContactsComponent'
 
 const router = new VueRouter({
     mode: 'history',
@@ -25,6 +26,11 @@ const router = new VueRouter({
             path: '/who-we-are',
             name: 'who-we-are',
             component: WhoWeAreComponent
+        },
+        {
+            path: '/contacts',
+            name: 'contacts',
+            component: ContactsComponent
         },
         {
             path: '/*',
