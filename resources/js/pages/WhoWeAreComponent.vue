@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h1>Who We Are</h1>
+        <h1 class="mt-5">Who We Are</h1>
       </div>
     </div>
   </div>
