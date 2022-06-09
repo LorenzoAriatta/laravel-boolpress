@@ -6,7 +6,7 @@
       </div>
       <div v-if="posts.length > 0">
         <!-- se l'array contiene dei dati andiamo visualizzarli con il v-if -->
-        <PostCardListComponent :posts="post" />
+        <PostCardListComponent :posts="posts" />
       </div>
       <div v-else>Loading Posts</div>
     </div>
@@ -14,7 +14,8 @@
 </template>
 
 <script>
-import PostCardListComponent from "../components/PostCardListComponents.vue";
+import PostCardListComponent from "../components/PostCardListComponent.vue";
+
 export default {
   name: "BlogComponent",
   components: { PostCardListComponent },
@@ -23,7 +24,7 @@ export default {
       posts: [],
     };
   },
-  mounte() {
+  mounted() {
     window.axios
       .get("http://127.0.0.1:8000/api/posts")
       .then(({ status, data }) => {
@@ -31,6 +32,7 @@ export default {
         //effettuo un controllo su status
         if (status === 200 && data.success) {
           this.posts = data.result.data;
+          console.log(this.posts);
         }
       })
       .catch((e) => {
