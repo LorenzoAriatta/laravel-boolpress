@@ -4,7 +4,7 @@
       <img :src="'storage/' + cover" :alt="title" />
       <h3>{{ title }}</h3>
       <p>{{ trimmedContent }} ...</p>
-      <router-link :to="{ name: 'single-post', params: { id } }"
+      <router-link :to="{ name: 'single-post', params: { slug } }"
         >Show details</router-link
       >
     </div>
@@ -14,7 +14,7 @@
 <script>
 export default {
   name: "PostCardComponent",
-  props: ["title", "cover", "content", "id"],
+  props: ["title", "cover", "content", "slug"],
   computed: {
     trimmedContent() {
       const shortContent =

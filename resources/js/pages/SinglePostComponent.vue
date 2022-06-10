@@ -35,10 +35,10 @@ export default {
     };
   },
   mounted() {
-    const id = this.$route.params.id;
-    console.log("mounted with id", id);
+    const slug = this.$route.params.slug;
+    console.log("mounted with slug", slug);
     window.axios
-      .get("http://127.0.0.1:8000/api/posts/" + id)
+      .get("http://127.0.0.1:8000/api/posts/" + slug)
       .then(({ status, data }) => {
         console.log(data);
         if (status === 200 && data.success) {

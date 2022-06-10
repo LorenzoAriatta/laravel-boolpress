@@ -24,4 +24,4 @@ Route::get('/categories', 'Api\CategoryController@index')->name('categories.inde
 
 Route::get('/categories/{post}', 'Api\CategoryController@show')->name('cotegories.show');
 
-Route::get('/posts/{id}', 'Api\PostController@show')->name('posts.show');
+Route::get('/posts/{slug}', 'Api\PostController@show')->name('posts.show');

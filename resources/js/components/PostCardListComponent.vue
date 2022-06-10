@@ -5,7 +5,7 @@
         :title="post.title"
         :cover="post.cover"
         :content="post.content"
-        :id="post.id"
+        :slug="post.slug"
       />
     </div>
   </div>

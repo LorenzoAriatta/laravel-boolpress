@@ -34,7 +34,7 @@ const router = new VueRouter({
             component: ContactsComponent
         },
         {
-            path: '/blog/:id',
+            path: '/blog/:slug',
             name: 'single-post',
             component: SinglePostComponent
         },
