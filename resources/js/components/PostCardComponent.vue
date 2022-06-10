@@ -4,7 +4,7 @@
       <img :src="'storage/' + cover" :alt="title" />
       <h3>{{ title }}</h3>
       <p>{{ trimmedContent }} ...</p>
-      <router-link :to="{ name: 'singlePost', params: { id } }"
+      <router-link :to="{ name: 'single-post', params: { id } }"
         >Show details</router-link
       >
     </div>
