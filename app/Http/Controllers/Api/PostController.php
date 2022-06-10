@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Post;
+use Log;
 
 class PostController extends Controller
 {
@@ -18,7 +19,7 @@ class PostController extends Controller
     {
         //paginate serve decidere quanti elementi assegnare alla API
         //in una chiamata axios
-        $posts = Post::paginate(5);
+        $posts = Post::paginate(2);
         //$posts = Post::all();
         $results = ['result'=>$posts, 'success'=>true];
         return response()->json($results);
@@ -54,9 +55,11 @@ class PostController extends Controller
     public function show($id)
     {
         //
+        Log::debug("SHOW1");
         $post = Post::where('id', $id)->with(['category', 'tags'])->first();
 
-        $result = ['results'=> $post, 'success'=> true];
+        $result = ['result'=> $post, 'success'=> true];
+        Log::debug("SHOW2");
         return response()->json($result);
     }
 
