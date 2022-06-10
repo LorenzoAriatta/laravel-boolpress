@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="card w-25">
+  <div class="col-12">
+    <div class="card">
       <img :src="'storage/' + cover" :alt="title" />
       <h3>{{ title }}</h3>
       <p>{{ trimmedContent }} ...</p>
@@ -26,5 +26,5 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 </style>

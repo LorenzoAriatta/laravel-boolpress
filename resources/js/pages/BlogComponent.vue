@@ -4,16 +4,16 @@
       <div class="col-12 text-center">
         <h1 class="mt-5">My Posts</h1>
       </div>
-      <div v-if="posts.length > 0">
+      <div class="col-12" v-if="posts.length > 0">
         <!-- se l'array contiene dei dati andiamo visualizzarli con il v-if -->
         <PostCardListComponent :posts="posts" />
+        <div class="d-flex justify-content-center align-items-baseline mt-5">
+          <button v-if="previousPageLink" @click="goPreviusPage()">Prev</button>
+          <h5 class="px-2">{{ currentPage }} / {{ lastPage }}</h5>
+          <button v-if="nextPageLink" @click="goNextPage()">Next</button>
+        </div>
       </div>
       <div v-else>Loading Posts</div>
-    </div>
-    <div class="d-flex justify-content-center align-items-baseline mt-5">
-      <button v-if="previousPageLink" @click="goPreviusPage()">Prev</button>
-      <h5 class="px-2">{{ currentPage }} / {{ lastPage }}</h5>
-      <button v-if="nextPageLink" @click="goNextPage()">Next</button>
     </div>
   </div>
 </template>

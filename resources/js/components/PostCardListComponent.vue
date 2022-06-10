@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div v-for="(post, index) in posts" :key="index">
+  <article class="mt-5 d-flex justify-content-center">
+    <div v-for="(post, index) in posts" :key="index" class="col-5">
       <PostCardComponent
         :title="post.title"
         :cover="post.cover"
@@ -8,7 +8,7 @@
         :slug="post.slug"
       />
     </div>
-  </div>
+  </article>
 </template>
 
 <script>

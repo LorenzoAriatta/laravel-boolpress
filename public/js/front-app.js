@@ -37871,7 +37871,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("HeaderComponent"), _vm._v(" "), _c("router-view")], 1)
+  return _c("main", [_c("HeaderComponent"), _vm._v(" "), _c("router-view")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -37931,10 +37931,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCardComponent.vue?vue&type=template&id=98af649c&":
-/*!********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PostCardComponent.vue?vue&type=template&id=98af649c& ***!
-  \********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCardComponent.vue?vue&type=template&id=98af649c&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PostCardComponent.vue?vue&type=template&id=98af649c&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -37946,10 +37946,10 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "col-12" }, [
     _c(
       "div",
-      { staticClass: "card w-25" },
+      { staticClass: "card" },
       [
         _c("img", { attrs: { src: "storage/" + _vm.cover, alt: _vm.title } }),
         _vm._v(" "),
@@ -37992,12 +37992,12 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
-    { staticClass: "container" },
+    "article",
+    { staticClass: "mt-5 d-flex justify-content-center" },
     _vm._l(_vm.posts, function (post, index) {
       return _c(
         "div",
-        { key: index },
+        { key: index, staticClass: "col-5" },
         [
           _c("PostCardComponent", {
             attrs: {
@@ -38043,51 +38043,57 @@ var render = function () {
       _vm.posts.length > 0
         ? _c(
             "div",
-            [_c("PostCardListComponent", { attrs: { posts: _vm.posts } })],
+            { staticClass: "col-12" },
+            [
+              _c("PostCardListComponent", { attrs: { posts: _vm.posts } }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex justify-content-center align-items-baseline mt-5",
+                },
+                [
+                  _vm.previousPageLink
+                    ? _c(
+                        "button",
+                        {
+                          on: {
+                            click: function ($event) {
+                              return _vm.goPreviusPage()
+                            },
+                          },
+                        },
+                        [_vm._v("Prev")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c("h5", { staticClass: "px-2" }, [
+                    _vm._v(
+                      _vm._s(_vm.currentPage) + " / " + _vm._s(_vm.lastPage)
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _vm.nextPageLink
+                    ? _c(
+                        "button",
+                        {
+                          on: {
+                            click: function ($event) {
+                              return _vm.goNextPage()
+                            },
+                          },
+                        },
+                        [_vm._v("Next")]
+                      )
+                    : _vm._e(),
+                ]
+              ),
+            ],
             1
           )
         : _c("div", [_vm._v("Loading Posts")]),
     ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "d-flex justify-content-center align-items-baseline mt-5",
-      },
-      [
-        _vm.previousPageLink
-          ? _c(
-              "button",
-              {
-                on: {
-                  click: function ($event) {
-                    return _vm.goPreviusPage()
-                  },
-                },
-              },
-              [_vm._v("Prev")]
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _c("h5", { staticClass: "px-2" }, [
-          _vm._v(_vm._s(_vm.currentPage) + " / " + _vm._s(_vm.lastPage)),
-        ]),
-        _vm._v(" "),
-        _vm.nextPageLink
-          ? _c(
-              "button",
-              {
-                on: {
-                  click: function ($event) {
-                    return _vm.goNextPage()
-                  },
-                },
-              },
-              [_vm._v("Next")]
-            )
-          : _vm._e(),
-      ]
-    ),
   ])
 }
 var staticRenderFns = [
@@ -53896,7 +53902,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _PostCardComponent_vue_vue_type_template_id_98af649c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PostCardComponent.vue?vue&type=template&id=98af649c& */ "./resources/js/components/PostCardComponent.vue?vue&type=template&id=98af649c&");
+/* harmony import */ var _PostCardComponent_vue_vue_type_template_id_98af649c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PostCardComponent.vue?vue&type=template&id=98af649c&scoped=true& */ "./resources/js/components/PostCardComponent.vue?vue&type=template&id=98af649c&scoped=true&");
 /* harmony import */ var _PostCardComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PostCardComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/PostCardComponent.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -53908,11 +53914,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _PostCardComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _PostCardComponent_vue_vue_type_template_id_98af649c___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _PostCardComponent_vue_vue_type_template_id_98af649c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _PostCardComponent_vue_vue_type_template_id_98af649c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PostCardComponent_vue_vue_type_template_id_98af649c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "98af649c",
   null
   
 )
@@ -53938,19 +53944,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/PostCardComponent.vue?vue&type=template&id=98af649c&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/PostCardComponent.vue?vue&type=template&id=98af649c& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/components/PostCardComponent.vue?vue&type=template&id=98af649c&scoped=true&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/PostCardComponent.vue?vue&type=template&id=98af649c&scoped=true& ***!
+  \**************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardComponent_vue_vue_type_template_id_98af649c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PostCardComponent.vue?vue&type=template&id=98af649c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCardComponent.vue?vue&type=template&id=98af649c&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardComponent_vue_vue_type_template_id_98af649c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardComponent_vue_vue_type_template_id_98af649c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PostCardComponent.vue?vue&type=template&id=98af649c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCardComponent.vue?vue&type=template&id=98af649c&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardComponent_vue_vue_type_template_id_98af649c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardComponent_vue_vue_type_template_id_98af649c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCardComponent_vue_vue_type_template_id_98af649c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
