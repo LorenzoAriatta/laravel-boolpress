@@ -1,20 +1,29 @@
 <template>
-  <div v-if="post" class="col-12">
-    <h2>{{ post.title }}</h2>
-    <img :src="'/storage/' + post.cover" :alt="post.title" />
-    <p>{{ post.content }}</p>
-    <div>
-      <h3>Category:</h3>
-      {{ post.category.name }}
+  <div class="container">
+    <div v-if="post" class="col-12">
+      <h2 class="text-center mt-3">{{ post.title }}</h2>
+      <div class="col-12">
+        <img
+          class="w-100 mb-3"
+          :src="'/storage/' + post.cover"
+          :alt="post.title"
+        />
+      </div>
+      <p>{{ post.content }}</p>
+      <div>
+        <h3>Category:</h3>
+        {{ post.category.name }}
+      </div>
+      <div>
+        <h3>Tags:</h3>
+        <ul>
+          <li v-for="tag in post.tags" :key="tag.id">{{ tag.name }}</li>
+        </ul>
+      </div>
+      <router-link :to="{ name: 'blog' }">Go Back</router-link>
     </div>
-    <div>
-      <h3>Tags:</h3>
-      <ul>
-        <li v-for="tag in post.tags" :key="tag.id">{{ tag.name }}</li>
-      </ul>
-    </div>
+    <div v-else>Loading Post</div>
   </div>
-  <div v-else>Loading Post</div>
 </template>
 
 <script>
