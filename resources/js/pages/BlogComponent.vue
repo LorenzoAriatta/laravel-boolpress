@@ -10,6 +10,11 @@
       </div>
       <div v-else>Loading Posts</div>
     </div>
+    <div class="d-flex justify-content-center align-items-baseline mt-5">
+      <button v-if="previousPageLink" @click="goPreviusPage()">Prev</button>
+      <h5 class="px-2">{{ currentPage }} / {{ lastPage }}</h5>
+      <button v-if="nextPageLink" @click="goNextPage()">Next</button>
+    </div>
   </div>
 </template>
 
@@ -22,22 +27,41 @@ export default {
   data() {
     return {
       posts: [],
+      currentPage: 1,
+      lastPage: 1,
+      previousPageLink: "",
+      nextPageLink: "",
     };
   },
   mounted() {
-    window.axios
-      .get("http://127.0.0.1:8000/api/posts")
-      .then(({ status, data }) => {
-        console.log(data);
-        //effettuo un controllo su status
-        if (status === 200 && data.success) {
-          this.posts = data.result.data;
-          console.log(this.posts);
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    this.loadPage("http://127.0.0.1:8000/api/posts");
+  },
+  methods: {
+    loadPage(url) {
+      window.axios
+        .get(url)
+        .then(({ status, data }) => {
+          console.log(data);
+          //effettuo un controllo su status
+          if (status === 200 && data.success) {
+            this.currentPage = data.result.current_page;
+            this.previousPageLink = data.result.prev_page_url;
+            this.nextPageLink = data.result.next_page_url;
+            this.lastPage = data.result.last_page;
+            this.posts = data.result.data;
+            console.log(this.posts);
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+    goNextPage() {
+      this.loadPage(this.nextPageLink);
+    },
+    goPreviusPage() {
+      this.loadPage(this.previousPageLink);
+    },
   },
 };
 </script>
