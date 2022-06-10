@@ -33,7 +33,7 @@ export default {
       .then(({ status, data }) => {
         console.log(data);
         if (status === 200 && data.success) {
-          this.post = data.result.data;
+          this.post = data.result;
         }
       })
       .catch((e) => {
