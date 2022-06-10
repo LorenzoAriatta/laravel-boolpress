@@ -2217,7 +2217,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log(data);
 
       if (status === 200 && data.success) {
-        _this.post = data.result.data;
+        _this.post = data.result;
       }
     })["catch"](function (e) {
       console.log(e);
